@@ -1,0 +1,13 @@
+[
+	{ "name": "post_status", "type": "text", "label": "Post status" },
+	{
+		"name": "deliveries",
+		"type": "array",
+		"label": "Deliveries",
+		"spec": [
+			{ "name": "id", "type": "text", "label": "Delivery ID" },
+			{ "name": "accountId", "type": "text", "label": "Account ID" },
+			{ "name": "status", "type": "text", "label": "Status" }
+		]
+	}
+]

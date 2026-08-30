@@ -1,0 +1,9 @@
+{
+	"response": {
+		"limit": 300,
+		"output": {
+			"label": "{{ifempty(item.title, item.content[1].text)}}",
+			"date": "{{item.created_at}}"
+		}
+	}
+}

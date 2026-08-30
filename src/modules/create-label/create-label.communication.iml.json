@@ -1,0 +1,12 @@
+{
+	"url": "/labels",
+	"method": "POST",
+	"body": {
+		"workspace_id": "{{parameters.workspace_id}}",
+		"name": "{{parameters.name}}",
+		"color": "{{parameters.color}}"
+	},
+	"response": {
+		"output": "{{body}}"
+	}
+}

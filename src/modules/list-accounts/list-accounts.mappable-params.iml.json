@@ -1,0 +1,11 @@
+[
+	{
+		"name": "workspaceId",
+		"type": "select",
+		"label": "Workspace",
+		"help": "Leave empty to list connected accounts across every workspace the API key can see.",
+		"options": {
+			"store": "rpc://listWorkspaces"
+		}
+	}
+]

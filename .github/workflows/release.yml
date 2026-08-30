@@ -1,0 +1,57 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create GitHub release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate JSON and app conventions
+        run: node scripts/validate.mjs
+
+      - name: Create the release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${GITHUB_REF_NAME}" --generate-notes --title "${GITHUB_REF_NAME}"
+
+  # There is no registry to publish a Make app to. Deploying means writing each app section
+  # back to Make with the Make CLI (`@makehq/cli`), which authenticates non-interactively from
+  # MAKE_API_KEY + MAKE_ZONE. The push is skipped when the repo has no MAKE_API_TOKEN secret,
+  # so tagging still produces a release on its own.
+  deploy:
+    name: Deploy to Make
+    needs: release
+    runs-on: ubuntu-latest
+    env:
+      MAKE_API_KEY: ${{ secrets.MAKE_API_TOKEN }}
+      MAKE_ZONE: ${{ vars.MAKE_ZONE || 'EU1' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Push the app definition to Make
+        if: env.MAKE_API_KEY != ''
+        run: node scripts/deploy.mjs
+
+      - name: Report a skipped deploy
+        if: env.MAKE_API_KEY == ''
+        run: |
+          echo "MAKE_API_TOKEN is not configured — the app definition was not pushed to Make."
+          echo "Deploy by hand from the Make Apps Editor in VS Code, or set the secret and re-run."

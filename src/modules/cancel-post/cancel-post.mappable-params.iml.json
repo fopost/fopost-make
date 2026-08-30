@@ -1,0 +1,21 @@
+[
+	{
+		"name": "id",
+		"type": "text",
+		"label": "Post ID",
+		"required": true
+	},
+	{
+		"name": "accountIds",
+		"type": "array",
+		"label": "Accounts",
+		"help": "Leave empty to cancel every pending delivery of the post.",
+		"spec": {
+			"type": "select",
+			"label": "Account",
+			"options": {
+				"store": "rpc://listAccounts"
+			}
+		}
+	}
+]

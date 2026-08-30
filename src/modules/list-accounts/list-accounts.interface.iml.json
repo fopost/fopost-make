@@ -1,0 +1,12 @@
+[
+	{ "name": "id", "type": "text", "label": "Account ID" },
+	{ "name": "workspaceId", "type": "text", "label": "Workspace ID" },
+	{ "name": "platform", "type": "text", "label": "Platform" },
+	{ "name": "username", "type": "text", "label": "Username" },
+	{ "name": "name", "type": "text", "label": "Name" },
+	{ "name": "avatar", "type": "url", "label": "Avatar URL" },
+	{ "name": "isPrimary", "type": "boolean", "label": "Primary" },
+	{ "name": "active", "type": "boolean", "label": "Active" },
+	{ "name": "healthStatus", "type": "text", "label": "Health status" },
+	{ "name": "lastHealthCheck", "type": "date", "label": "Last health check" }
+]

@@ -1,0 +1,12 @@
+[
+	{ "name": "id", "type": "text", "label": "Media ID" },
+	{ "name": "userId", "type": "text", "label": "User ID" },
+	{ "name": "workspaceId", "type": "text", "label": "Workspace ID" },
+	{ "name": "name", "type": "text", "label": "File name" },
+	{ "name": "url", "type": "url", "label": "URL" },
+	{ "name": "type", "type": "text", "label": "Type" },
+	{ "name": "mimeType", "type": "text", "label": "MIME type" },
+	{ "name": "size", "type": "number", "label": "Size (bytes)" },
+	{ "name": "altText", "type": "text", "label": "Alt text" },
+	{ "name": "createdAt", "type": "date", "label": "Created at" }
+]

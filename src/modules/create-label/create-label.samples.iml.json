@@ -1,0 +1,16 @@
+{
+	"id": "a41d6b90-7c35-4e28-9d17-6b0f8a2c4e51",
+	"name": "Launch",
+	"color": "#2f6fed",
+	"workspace": {
+		"id": "0c7a4d18-9e52-4b6f-8a31-5d2f0b9c7e64",
+		"name": "Your Brand",
+		"slug": "your-brand",
+		"type": "brand",
+		"logo": null,
+		"timezone": "UTC",
+		"language": "en"
+	},
+	"created_at": "2026-08-30T11:02:44.180Z",
+	"updated_at": "2026-08-30T11:02:44.180Z"
+}

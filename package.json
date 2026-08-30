@@ -1,0 +1,33 @@
+{
+  "name": "fopost-make",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Official FoPost app for Make — Make custom app definition (IML JSON) for the FoPost API.",
+  "homepage": "https://fopost.com",
+  "author": "Porter Bridge, LLC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fopost/fopost-make.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fopost/fopost-make/issues"
+  },
+  "keywords": [
+    "fopost",
+    "make",
+    "integromat",
+    "make-app",
+    "social-media",
+    "scheduling",
+    "automation"
+  ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "deploy:dry-run": "node scripts/deploy.mjs --dry-run",
+    "deploy": "node scripts/deploy.mjs"
+  }
+}

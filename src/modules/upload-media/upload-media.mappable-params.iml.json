@@ -1,0 +1,26 @@
+[
+	{
+		"name": "workspaceId",
+		"type": "select",
+		"label": "Workspace",
+		"help": "Save the file to this workspace's media library. Leave empty to upload without storing a library record.",
+		"options": {
+			"store": "rpc://listWorkspaces"
+		}
+	},
+	{
+		"name": "file_name",
+		"type": "filename",
+		"label": "File name",
+		"required": true,
+		"semantic": "file:name"
+	},
+	{
+		"name": "file_data",
+		"type": "buffer",
+		"label": "File data",
+		"required": true,
+		"semantic": "file:data",
+		"help": "Max 50 MB. Allowed types: jpeg, png, gif, webp, mp4, mov, webm, pdf, txt, csv."
+	}
+]

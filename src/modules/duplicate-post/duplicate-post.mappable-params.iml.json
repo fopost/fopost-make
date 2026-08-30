@@ -1,0 +1,9 @@
+[
+	{
+		"name": "id",
+		"type": "text",
+		"label": "Post ID",
+		"required": true,
+		"help": "The post to copy. Content, target accounts, per-platform settings and labels are copied into a new draft; schedule, approval and delivery state are not."
+	}
+]

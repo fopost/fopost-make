@@ -1,0 +1,34 @@
+[
+	{ "name": "post_status", "type": "text", "label": "Post status" },
+	{ "name": "dryRun", "type": "boolean", "label": "Dry run" },
+	{
+		"name": "deliveries",
+		"type": "array",
+		"label": "Deliveries",
+		"spec": [
+			{ "name": "id", "type": "text", "label": "Delivery ID" },
+			{ "name": "accountId", "type": "text", "label": "Account ID" },
+			{ "name": "status", "type": "text", "label": "Status" },
+			{ "name": "errorCode", "type": "text", "label": "Error code" },
+			{ "name": "errorMessage", "type": "text", "label": "Error message" },
+			{ "name": "platformPostId", "type": "text", "label": "Platform post ID" },
+			{ "name": "externalUrl", "type": "url", "label": "External URL" },
+			{ "name": "postedAt", "type": "date", "label": "Posted at" },
+			{ "name": "attempts", "type": "number", "label": "Attempts" },
+			{ "name": "scheduledPublishAt", "type": "date", "label": "Scheduled publish at" },
+			{ "name": "delayReason", "type": "text", "label": "Delay reason" },
+			{ "name": "delayMessage", "type": "text", "label": "Delay message" }
+		]
+	},
+	{
+		"name": "healthWarnings",
+		"type": "array",
+		"label": "Health warnings",
+		"spec": [
+			{ "name": "accountId", "type": "text", "label": "Account ID" },
+			{ "name": "platform", "type": "text", "label": "Platform" },
+			{ "name": "healthStatus", "type": "text", "label": "Health status" },
+			{ "name": "message", "type": "text", "label": "Message" }
+		]
+	}
+]

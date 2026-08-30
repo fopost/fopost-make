@@ -1,0 +1,340 @@
+{
+	"fileVersion": 1,
+	"generalCodeFiles": {
+		"base": "general/base.iml.json",
+		"common": "general/common.json",
+		"readme": "README.md",
+		"groups": "modules/groups.json"
+	},
+	"components": {
+		"connection": {
+			"fopost": {
+				"label": "FoPost API key",
+				"connectionType": "basic",
+				"codeFiles": {
+					"communication": "connections/fopost/fopost.communication.iml.json",
+					"params": "connections/fopost/fopost.params.iml.json",
+					"common": "connections/fopost/fopost.common.json"
+				}
+			}
+		},
+		"webhook": {
+			"fopostEvents": {
+				"label": "FoPost events",
+				"webhookType": "web",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "webhooks/fopost-events/fopost-events.communication.iml.json",
+					"params": "webhooks/fopost-events/fopost-events.params.iml.json",
+					"attach": "webhooks/fopost-events/fopost-events.attach.iml.json",
+					"detach": "webhooks/fopost-events/fopost-events.detach.iml.json",
+					"update": "webhooks/fopost-events/fopost-events.update.iml.json"
+				}
+			}
+		},
+		"module": {
+			"createPost": {
+				"label": "Create a post",
+				"description": "Creates a post in FoPost as a draft, or scheduled for a given time.",
+				"moduleType": "action",
+				"connection": "fopost",
+				"actionCrud": "create",
+				"codeFiles": {
+					"communication": "modules/create-post/create-post.communication.iml.json",
+					"staticParams": "modules/create-post/create-post.static-params.iml.json",
+					"mappableParams": "modules/create-post/create-post.mappable-params.iml.json",
+					"interface": "modules/create-post/create-post.interface.iml.json",
+					"samples": "modules/create-post/create-post.samples.iml.json"
+				}
+			},
+			"updatePost": {
+				"label": "Update a post",
+				"description": "Updates an existing FoPost post.",
+				"moduleType": "action",
+				"connection": "fopost",
+				"actionCrud": "update",
+				"codeFiles": {
+					"communication": "modules/update-post/update-post.communication.iml.json",
+					"staticParams": "modules/update-post/update-post.static-params.iml.json",
+					"mappableParams": "modules/update-post/update-post.mappable-params.iml.json",
+					"interface": "modules/update-post/update-post.interface.iml.json",
+					"samples": "modules/update-post/update-post.samples.iml.json"
+				}
+			},
+			"getPost": {
+				"label": "Get a post",
+				"description": "Returns a single FoPost post with its content, target accounts and per-account delivery state.",
+				"moduleType": "action",
+				"connection": "fopost",
+				"actionCrud": "read",
+				"codeFiles": {
+					"communication": "modules/get-post/get-post.communication.iml.json",
+					"staticParams": "modules/get-post/get-post.static-params.iml.json",
+					"mappableParams": "modules/get-post/get-post.mappable-params.iml.json",
+					"interface": "modules/get-post/get-post.interface.iml.json",
+					"samples": "modules/get-post/get-post.samples.iml.json"
+				}
+			},
+			"publishPost": {
+				"label": "Publish a post",
+				"description": "Hands a post to the FoPost delivery queue. Returns once delivery is queued, not once the post is live.",
+				"moduleType": "action",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "modules/publish-post/publish-post.communication.iml.json",
+					"staticParams": "modules/publish-post/publish-post.static-params.iml.json",
+					"mappableParams": "modules/publish-post/publish-post.mappable-params.iml.json",
+					"interface": "modules/publish-post/publish-post.interface.iml.json",
+					"samples": "modules/publish-post/publish-post.samples.iml.json"
+				}
+			},
+			"cancelPost": {
+				"label": "Cancel a post",
+				"description": "Cancels the pending deliveries of a post.",
+				"moduleType": "action",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "modules/cancel-post/cancel-post.communication.iml.json",
+					"staticParams": "modules/cancel-post/cancel-post.static-params.iml.json",
+					"mappableParams": "modules/cancel-post/cancel-post.mappable-params.iml.json",
+					"interface": "modules/cancel-post/cancel-post.interface.iml.json",
+					"samples": "modules/cancel-post/cancel-post.samples.iml.json"
+				}
+			},
+			"duplicatePost": {
+				"label": "Duplicate a post",
+				"description": "Copies a post into a new draft in the same workspace.",
+				"moduleType": "action",
+				"connection": "fopost",
+				"actionCrud": "create",
+				"codeFiles": {
+					"communication": "modules/duplicate-post/duplicate-post.communication.iml.json",
+					"staticParams": "modules/duplicate-post/duplicate-post.static-params.iml.json",
+					"mappableParams": "modules/duplicate-post/duplicate-post.mappable-params.iml.json",
+					"interface": "modules/duplicate-post/duplicate-post.interface.iml.json",
+					"samples": "modules/duplicate-post/duplicate-post.samples.iml.json"
+				}
+			},
+			"deletePost": {
+				"label": "Delete a post",
+				"description": "Deletes a post and its pending deliveries.",
+				"moduleType": "action",
+				"connection": "fopost",
+				"actionCrud": "delete",
+				"codeFiles": {
+					"communication": "modules/delete-post/delete-post.communication.iml.json",
+					"staticParams": "modules/delete-post/delete-post.static-params.iml.json",
+					"mappableParams": "modules/delete-post/delete-post.mappable-params.iml.json",
+					"interface": "modules/delete-post/delete-post.interface.iml.json",
+					"samples": "modules/delete-post/delete-post.samples.iml.json"
+				}
+			},
+			"uploadMedia": {
+				"label": "Upload a media file",
+				"description": "Uploads a file to FoPost and, when a workspace is given, stores it in that workspace media library.",
+				"moduleType": "action",
+				"connection": "fopost",
+				"actionCrud": "create",
+				"codeFiles": {
+					"communication": "modules/upload-media/upload-media.communication.iml.json",
+					"staticParams": "modules/upload-media/upload-media.static-params.iml.json",
+					"mappableParams": "modules/upload-media/upload-media.mappable-params.iml.json",
+					"interface": "modules/upload-media/upload-media.interface.iml.json",
+					"samples": "modules/upload-media/upload-media.samples.iml.json"
+				}
+			},
+			"createLabel": {
+				"label": "Create a label",
+				"description": "Creates a label in a FoPost workspace.",
+				"moduleType": "action",
+				"connection": "fopost",
+				"actionCrud": "create",
+				"codeFiles": {
+					"communication": "modules/create-label/create-label.communication.iml.json",
+					"staticParams": "modules/create-label/create-label.static-params.iml.json",
+					"mappableParams": "modules/create-label/create-label.mappable-params.iml.json",
+					"interface": "modules/create-label/create-label.interface.iml.json",
+					"samples": "modules/create-label/create-label.samples.iml.json"
+				}
+			},
+			"triggerAutomation": {
+				"label": "Trigger an automation",
+				"description": "Triggers a FoPost automation of type api_webhook using its own secret.",
+				"moduleType": "action",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "modules/trigger-automation/trigger-automation.communication.iml.json",
+					"staticParams": "modules/trigger-automation/trigger-automation.static-params.iml.json",
+					"mappableParams": "modules/trigger-automation/trigger-automation.mappable-params.iml.json",
+					"interface": "modules/trigger-automation/trigger-automation.interface.iml.json",
+					"samples": "modules/trigger-automation/trigger-automation.samples.iml.json"
+				}
+			},
+			"listPosts": {
+				"label": "Search posts",
+				"description": "Returns posts matching the selected workspace, status, label, account and date filters.",
+				"moduleType": "search",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "modules/list-posts/list-posts.communication.iml.json",
+					"staticParams": "modules/list-posts/list-posts.static-params.iml.json",
+					"mappableParams": "modules/list-posts/list-posts.mappable-params.iml.json",
+					"interface": "modules/list-posts/list-posts.interface.iml.json",
+					"samples": "modules/list-posts/list-posts.samples.iml.json"
+				}
+			},
+			"listWorkspaces": {
+				"label": "List workspaces",
+				"description": "Returns the workspaces this API key can see, each with its connected accounts.",
+				"moduleType": "search",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "modules/list-workspaces/list-workspaces.communication.iml.json",
+					"staticParams": "modules/list-workspaces/list-workspaces.static-params.iml.json",
+					"mappableParams": "modules/list-workspaces/list-workspaces.mappable-params.iml.json",
+					"interface": "modules/list-workspaces/list-workspaces.interface.iml.json",
+					"samples": "modules/list-workspaces/list-workspaces.samples.iml.json"
+				}
+			},
+			"listAccounts": {
+				"label": "List accounts",
+				"description": "Returns the connected social accounts of a workspace.",
+				"moduleType": "search",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "modules/list-accounts/list-accounts.communication.iml.json",
+					"staticParams": "modules/list-accounts/list-accounts.static-params.iml.json",
+					"mappableParams": "modules/list-accounts/list-accounts.mappable-params.iml.json",
+					"interface": "modules/list-accounts/list-accounts.interface.iml.json",
+					"samples": "modules/list-accounts/list-accounts.samples.iml.json"
+				}
+			},
+			"listMedia": {
+				"label": "List media files",
+				"description": "Returns the media library items of a workspace.",
+				"moduleType": "search",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "modules/list-media/list-media.communication.iml.json",
+					"staticParams": "modules/list-media/list-media.static-params.iml.json",
+					"mappableParams": "modules/list-media/list-media.mappable-params.iml.json",
+					"interface": "modules/list-media/list-media.interface.iml.json",
+					"samples": "modules/list-media/list-media.samples.iml.json"
+				}
+			},
+			"getAnalyticsOverview": {
+				"label": "Get an analytics overview",
+				"description": "Returns cross-platform totals, period-over-period deltas and per-account follower history.",
+				"moduleType": "search",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "modules/get-analytics-overview/get-analytics-overview.communication.iml.json",
+					"staticParams": "modules/get-analytics-overview/get-analytics-overview.static-params.iml.json",
+					"mappableParams": "modules/get-analytics-overview/get-analytics-overview.mappable-params.iml.json",
+					"interface": "modules/get-analytics-overview/get-analytics-overview.interface.iml.json",
+					"samples": "modules/get-analytics-overview/get-analytics-overview.samples.iml.json"
+				}
+			},
+			"watchPublishedPosts": {
+				"label": "Watch published posts",
+				"description": "Triggers when a post reaches the published status.",
+				"moduleType": "trigger",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "modules/watch-published-posts/watch-published-posts.communication.iml.json",
+					"staticParams": "modules/watch-published-posts/watch-published-posts.static-params.iml.json",
+					"mappableParams": "modules/watch-published-posts/watch-published-posts.mappable-params.iml.json",
+					"interface": "modules/watch-published-posts/watch-published-posts.interface.iml.json",
+					"samples": "modules/watch-published-posts/watch-published-posts.samples.iml.json",
+					"epoch": "modules/watch-published-posts/watch-published-posts.epoch.iml.json"
+				}
+			},
+			"watchFailedPosts": {
+				"label": "Watch failed posts",
+				"description": "Triggers when a post fails to publish.",
+				"moduleType": "trigger",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "modules/watch-failed-posts/watch-failed-posts.communication.iml.json",
+					"staticParams": "modules/watch-failed-posts/watch-failed-posts.static-params.iml.json",
+					"mappableParams": "modules/watch-failed-posts/watch-failed-posts.mappable-params.iml.json",
+					"interface": "modules/watch-failed-posts/watch-failed-posts.interface.iml.json",
+					"samples": "modules/watch-failed-posts/watch-failed-posts.samples.iml.json",
+					"epoch": "modules/watch-failed-posts/watch-failed-posts.epoch.iml.json"
+				}
+			},
+			"watchEvents": {
+				"label": "Watch events",
+				"description": "Triggers immediately when FoPost sends a subscribed event, such as a delivery going live or failing.",
+				"moduleType": "instant_trigger",
+				"connection": "fopost",
+				"webhook": "fopostEvents",
+				"codeFiles": {
+					"communication": "modules/watch-events/watch-events.communication.iml.json",
+					"staticParams": "modules/watch-events/watch-events.static-params.iml.json",
+					"mappableParams": "modules/watch-events/watch-events.mappable-params.iml.json",
+					"interface": "modules/watch-events/watch-events.interface.iml.json",
+					"samples": "modules/watch-events/watch-events.samples.iml.json"
+				}
+			},
+			"makeApiCall": {
+				"label": "Make an API call",
+				"description": "Performs an arbitrary authorized API call.",
+				"moduleType": "universal",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "modules/make-api-call/make-api-call.communication.iml.json",
+					"staticParams": "modules/make-api-call/make-api-call.static-params.iml.json",
+					"mappableParams": "modules/make-api-call/make-api-call.mappable-params.iml.json",
+					"interface": "modules/make-api-call/make-api-call.interface.iml.json",
+					"samples": "modules/make-api-call/make-api-call.samples.iml.json"
+				}
+			}
+		},
+		"rpc": {
+			"listWorkspaces": {
+				"label": "List workspaces",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "rpcs/list-workspaces/list-workspaces.communication.iml.json",
+					"params": "rpcs/list-workspaces/list-workspaces.params.iml.json"
+				}
+			},
+			"listAccounts": {
+				"label": "List accounts",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "rpcs/list-accounts/list-accounts.communication.iml.json",
+					"params": "rpcs/list-accounts/list-accounts.params.iml.json"
+				}
+			},
+			"listLabels": {
+				"label": "List labels",
+				"connection": "fopost",
+				"codeFiles": {
+					"communication": "rpcs/list-labels/list-labels.communication.iml.json",
+					"params": "rpcs/list-labels/list-labels.params.iml.json"
+				}
+			}
+		},
+		"function": {},
+		"endpoint": {}
+	},
+	"origins": [
+		{
+			"label": "Production",
+			"baseUrl": "https://eu1.make.com/api",
+			"appId": "fopost",
+			"appVersion": 1,
+			"apikeyFile": "../.secrets/apikey",
+			"idMapping": {
+				"connection": [],
+				"module": [],
+				"function": [],
+				"rpc": [],
+				"webhook": [],
+				"endpoint": []
+			}
+		}
+	]
+}

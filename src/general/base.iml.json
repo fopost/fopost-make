@@ -1,0 +1,42 @@
+{
+	"baseUrl": "https://api.fopost.com/v1",
+	"headers": {
+		"X-API-Key": "{{connection.apiKey}}",
+		"Accept": "application/json"
+	},
+	"response": {
+		"error": {
+			"401": {
+				"type": "InvalidAccessTokenError",
+				"message": "[401] {{ifempty(body.message, 'The FoPost API key is missing, invalid or revoked. Reconnect the FoPost connection.')}}"
+			},
+			"402": {
+				"type": "InvalidConfigurationError",
+				"message": "[402] {{ifempty(body.message, 'This FoPost account has no active subscription.')}}{{if(body.upgrade_url, ' Upgrade your plan at https://fopost.com' + body.upgrade_url + ' and enable the scenario again.', ' Upgrade your plan at https://fopost.com/pricing and enable the scenario again.')}}"
+			},
+			"403": {
+				"type": "InvalidConfigurationError",
+				"message": "[403] {{ifempty(body.message, 'This FoPost API key is not allowed to perform this action.')}} (code: {{ifempty(body.error, 'forbidden')}})"
+			},
+			"404": {
+				"type": "DataError",
+				"message": "[404] {{ifempty(body.message, 'The requested FoPost resource does not exist or is not visible to this API key.')}}"
+			},
+			"422": {
+				"type": "DataError",
+				"message": "[422] {{ifempty(body.message, 'FoPost rejected the request data.')}} (code: {{ifempty(body.error, 'unprocessable')}})"
+			},
+			"429": {
+				"type": "RateLimitError",
+				"message": "[429] {{ifempty(body.message, 'The FoPost API rate limit was exceeded.')}}{{if(headers.`retry-after`, ' Retry after ' + headers.`retry-after` + ' second(s).', '')}}"
+			},
+			"message": "[{{statusCode}}] {{ifempty(body.message, ifempty(body.error, 'Unexpected FoPost API error.'))}}"
+		}
+	},
+	"log": {
+		"sanitize": [
+			"request.headers.`X-API-Key`",
+			"response.body.apiKey"
+		]
+	}
+}

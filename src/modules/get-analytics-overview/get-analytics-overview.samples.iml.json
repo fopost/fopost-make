@@ -1,0 +1,52 @@
+{
+	"totalAccounts": 4,
+	"totalFollowers": 18420,
+	"totalPosts": 12,
+	"totalEngagement": 934,
+	"totalImpressions": 41230,
+	"totalReach": 28760,
+	"totalLikes": 712,
+	"totalComments": 118,
+	"totalShares": 74,
+	"totalReposts": 30,
+	"totalSaves": 41,
+	"totalClicks": 209,
+	"totalVideoViews": 5120,
+	"totalProfileViews": 640,
+	"engagementRate": 3.25,
+	"deltas": {
+		"followers": 1.8,
+		"posts": 20,
+		"engagement": 12.4,
+		"impressions": 8.1,
+		"likes": null,
+		"comments": null,
+		"shares": null,
+		"profileViews": 4.2
+	},
+	"todayStats": {
+		"posts": 2,
+		"followerChange": 37,
+		"engagement": 108
+	},
+	"platforms": [
+		{ "platform": "linkedin", "accounts": 1, "followers": 9200 },
+		{ "platform": "instagram", "accounts": 1, "followers": 6100 }
+	],
+	"accounts": [
+		{
+			"accountId": "b8e0f5c1-2d47-4a93-bc60-9f1a3e7d5824",
+			"platform": "linkedin",
+			"username": "yourbrand",
+			"name": "Your Brand",
+			"avatar": "https://cdn.yourbrand.com/avatar.png",
+			"followers": 9200,
+			"totalPosts": 148,
+			"fetchedAt": "2026-08-30T06:00:00.000Z",
+			"history": [
+				{ "date": "2026-08-29", "followers": 9183 },
+				{ "date": "2026-08-30", "followers": 9200 }
+			]
+		}
+	]
+}

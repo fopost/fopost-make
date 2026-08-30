@@ -1,0 +1,18 @@
+{
+	"url": "/automations/{{parameters.id}}/trigger",
+	"method": "POST",
+	"headers": {
+		"x-automation-secret": "{{parameters.secret}}"
+	},
+	"body": "{{parameters.payload}}",
+	"response": {
+		"output": {
+			"automationId": "{{parameters.id}}",
+			"runId": "{{body.data.runId}}",
+			"triggered": "{{body.data.triggered}}"
+		}
+	},
+	"log": {
+		"sanitize": ["request.headers.`x-automation-secret`"]
+	}
+}

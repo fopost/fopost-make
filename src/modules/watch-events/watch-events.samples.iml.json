@@ -1,0 +1,14 @@
+{
+	"event": "delivery.published",
+	"timestamp": "2026-08-30T09:00:12.418Z",
+	"data": {
+		"postId": "3f1c9a2e-6b41-4c8d-9f0a-27b5d1e84c73",
+		"status": "published",
+		"postAccountId": "7c2b8e14-53af-4d61-9b0e-2a6f1d3c8759",
+		"accountId": "b8e0f5c1-2d47-4a93-bc60-9f1a3e7d5824",
+		"platform": "linkedin",
+		"externalUrl": "https://www.linkedin.com/feed/update/urn:li:share:7231180934102",
+		"errorCode": null,
+		"errorMessage": null
+	}
+}

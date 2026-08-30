@@ -1,0 +1,76 @@
+[
+	{ "name": "totalAccounts", "type": "number", "label": "Total accounts" },
+	{ "name": "totalFollowers", "type": "number", "label": "Total followers" },
+	{ "name": "totalPosts", "type": "number", "label": "Total posts" },
+	{ "name": "totalEngagement", "type": "number", "label": "Total engagement" },
+	{ "name": "totalImpressions", "type": "number", "label": "Total impressions" },
+	{ "name": "totalReach", "type": "number", "label": "Total reach" },
+	{ "name": "totalLikes", "type": "number", "label": "Total likes" },
+	{ "name": "totalComments", "type": "number", "label": "Total comments" },
+	{ "name": "totalShares", "type": "number", "label": "Total shares" },
+	{ "name": "totalReposts", "type": "number", "label": "Total reposts" },
+	{ "name": "totalSaves", "type": "number", "label": "Total saves" },
+	{ "name": "totalClicks", "type": "number", "label": "Total clicks" },
+	{ "name": "totalVideoViews", "type": "number", "label": "Total video views" },
+	{ "name": "totalProfileViews", "type": "number", "label": "Total profile views" },
+	{ "name": "engagementRate", "type": "number", "label": "Engagement rate" },
+	{
+		"name": "deltas",
+		"type": "collection",
+		"label": "Deltas vs previous period",
+		"spec": [
+			{ "name": "followers", "type": "number", "label": "Followers" },
+			{ "name": "posts", "type": "number", "label": "Posts" },
+			{ "name": "engagement", "type": "number", "label": "Engagement" },
+			{ "name": "impressions", "type": "number", "label": "Impressions" },
+			{ "name": "likes", "type": "number", "label": "Likes" },
+			{ "name": "comments", "type": "number", "label": "Comments" },
+			{ "name": "shares", "type": "number", "label": "Shares" },
+			{ "name": "profileViews", "type": "number", "label": "Profile views" }
+		]
+	},
+	{
+		"name": "todayStats",
+		"type": "collection",
+		"label": "Today",
+		"spec": [
+			{ "name": "posts", "type": "number", "label": "Posts" },
+			{ "name": "followerChange", "type": "number", "label": "Follower change" },
+			{ "name": "engagement", "type": "number", "label": "Engagement" }
+		]
+	},
+	{
+		"name": "platforms",
+		"type": "array",
+		"label": "Platforms",
+		"spec": [
+			{ "name": "platform", "type": "text", "label": "Platform" },
+			{ "name": "accounts", "type": "number", "label": "Accounts" },
+			{ "name": "followers", "type": "number", "label": "Followers" }
+		]
+	},
+	{
+		"name": "accounts",
+		"type": "array",
+		"label": "Accounts",
+		"spec": [
+			{ "name": "accountId", "type": "text", "label": "Account ID" },
+			{ "name": "platform", "type": "text", "label": "Platform" },
+			{ "name": "username", "type": "text", "label": "Username" },
+			{ "name": "name", "type": "text", "label": "Name" },
+			{ "name": "avatar", "type": "url", "label": "Avatar URL" },
+			{ "name": "followers", "type": "number", "label": "Followers" },
+			{ "name": "totalPosts", "type": "number", "label": "Total posts" },
+			{ "name": "fetchedAt", "type": "date", "label": "Fetched at" },
+			{
+				"name": "history",
+				"type": "array",
+				"label": "Follower history",
+				"spec": [
+					{ "name": "date", "type": "date", "label": "Date" },
+					{ "name": "followers", "type": "number", "label": "Followers" }
+				]
+			}
+		]
+	}
+]

@@ -1,0 +1,4 @@
+[
+	{ "name": "id", "type": "text", "label": "Post ID" },
+	{ "name": "message", "type": "text", "label": "Message" }
+]

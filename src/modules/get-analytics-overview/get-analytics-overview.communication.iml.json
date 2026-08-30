@@ -1,0 +1,12 @@
+{
+	"url": "/analytics/overview",
+	"method": "GET",
+	"qs": {
+		"workspace_id": "{{parameters.workspace_id}}",
+		"accountId": "{{parameters.accountId}}",
+		"days": "{{parameters.days}}"
+	},
+	"response": {
+		"output": "{{body.data}}"
+	}
+}

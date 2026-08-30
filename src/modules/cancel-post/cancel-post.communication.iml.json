@@ -1,0 +1,10 @@
+{
+	"url": "/posts/{{parameters.id}}/cancel",
+	"method": "POST",
+	"body": {
+		"accountIds": "{{parameters.accountIds}}"
+	},
+	"response": {
+		"output": "{{body.data}}"
+	}
+}

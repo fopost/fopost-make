@@ -1,0 +1,33 @@
+[
+	{
+		"name": "workspaceId",
+		"type": "select",
+		"label": "Workspace",
+		"required": true,
+		"options": {
+			"store": "rpc://listWorkspaces"
+		}
+	},
+	{
+		"name": "events",
+		"type": "array",
+		"label": "Events",
+		"required": true,
+		"validate": {
+			"minItems": 1
+		},
+		"spec": {
+			"type": "select",
+			"label": "Event",
+			"options": [
+				{ "label": "Post published", "value": "post.published" },
+				{ "label": "Post failed", "value": "post.failed" },
+				{ "label": "Post partially failed", "value": "post.partially_failed" },
+				{ "label": "Delivery published", "value": "delivery.published" },
+				{ "label": "Delivery failed", "value": "delivery.failed" },
+				{ "label": "Delivery delayed", "value": "delivery.delayed" },
+				{ "label": "Account health changed", "value": "account.health_changed" }
+			]
+		}
+	}
+]

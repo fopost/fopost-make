@@ -1,0 +1,11 @@
+[
+	{
+		"name": "workspaceId",
+		"type": "select",
+		"label": "Workspace",
+		"required": true,
+		"options": {
+			"store": "rpc://listWorkspaces"
+		}
+	}
+]

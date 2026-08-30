@@ -1,0 +1,19 @@
+[
+	{ "name": "event", "type": "text", "label": "Event" },
+	{ "name": "timestamp", "type": "date", "label": "Timestamp" },
+	{
+		"name": "data",
+		"type": "collection",
+		"label": "Data",
+		"spec": [
+			{ "name": "postId", "type": "text", "label": "Post ID" },
+			{ "name": "status", "type": "text", "label": "Post status" },
+			{ "name": "postAccountId", "type": "text", "label": "Delivery ID" },
+			{ "name": "accountId", "type": "text", "label": "Account ID" },
+			{ "name": "platform", "type": "text", "label": "Platform" },
+			{ "name": "externalUrl", "type": "url", "label": "External URL" },
+			{ "name": "errorCode", "type": "text", "label": "Error code" },
+			{ "name": "errorMessage", "type": "text", "label": "Error message" }
+		]
+	}
+]

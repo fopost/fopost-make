@@ -1,0 +1,17 @@
+{
+	"url": "/webhooks",
+	"method": "POST",
+	"body": {
+		"workspaceId": "{{parameters.workspaceId}}",
+		"url": "{{webhook.url}}",
+		"events": "{{parameters.events}}"
+	},
+	"response": {
+		"data": {
+			"externalHookId": "{{body.data.id}}"
+		}
+	},
+	"log": {
+		"sanitize": ["response.body.data.secret"]
+	}
+}

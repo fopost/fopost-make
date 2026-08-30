@@ -1,0 +1,137 @@
+[
+	{
+		"name": "workspace_id",
+		"type": "select",
+		"label": "Workspace",
+		"required": true,
+		"options": {
+			"store": "rpc://listWorkspaces"
+		}
+	},
+	{
+		"name": "accounts",
+		"type": "array",
+		"label": "Accounts",
+		"required": true,
+		"help": "The connected social accounts this post is published to.",
+		"spec": {
+			"type": "select",
+			"label": "Account",
+			"options": {
+				"store": "rpc://listAccounts"
+			}
+		},
+		"validate": {
+			"minItems": 1
+		}
+	},
+	{
+		"name": "content",
+		"type": "array",
+		"label": "Content",
+		"required": true,
+		"help": "One block for a single post, several blocks for a thread. Media must already be reachable by URL — run **Upload media** first and map the returned URL here.",
+		"validate": {
+			"minItems": 1
+		},
+		"spec": {
+			"type": "collection",
+			"label": "Block",
+			"spec": [
+				{
+					"name": "text",
+					"type": "text",
+					"label": "Text",
+					"multiline": true
+				},
+				{
+					"name": "media",
+					"type": "array",
+					"label": "Media",
+					"spec": {
+						"type": "collection",
+						"label": "File",
+						"spec": [
+							{
+								"name": "type",
+								"type": "select",
+								"label": "Type",
+								"required": true,
+								"default": "image",
+								"options": [
+									{ "label": "Image", "value": "image" },
+									{ "label": "Video", "value": "video" },
+									{ "label": "GIF", "value": "gif" }
+								]
+							},
+							{ "name": "name", "type": "text", "label": "File name", "required": true },
+							{ "name": "url", "type": "url", "label": "URL", "required": true },
+							{ "name": "size", "type": "number", "label": "Size (bytes)" },
+							{ "name": "alt", "type": "text", "label": "Alt text" },
+							{ "name": "thumbnail", "type": "url", "label": "Thumbnail URL" }
+						]
+					}
+				}
+			]
+		}
+	},
+	{
+		"name": "content_type",
+		"type": "select",
+		"label": "Content type",
+		"default": "post",
+		"options": [
+			{ "label": "Post", "value": "post" },
+			{ "label": "Thread", "value": "thread" },
+			{ "label": "Reel", "value": "reel" }
+		]
+	},
+	{
+		"name": "status",
+		"type": "select",
+		"label": "Status",
+		"default": "draft",
+		"help": "A `scheduled` post needs **Schedule at** and is published by FoPost at that time. A `draft` post stays put until you run **Publish a post**.",
+		"options": [
+			{ "label": "Draft", "value": "draft" },
+			{ "label": "Scheduled", "value": "scheduled" }
+		]
+	},
+	{
+		"name": "schedule_at",
+		"type": "date",
+		"label": "Schedule at",
+		"help": "Required when **Status** is `scheduled`."
+	},
+	{
+		"name": "labels",
+		"type": "array",
+		"label": "Labels",
+		"spec": {
+			"type": "select",
+			"label": "Label",
+			"options": {
+				"store": "rpc://listLabels"
+			}
+		}
+	},
+	{ "name": "title", "type": "text", "label": "Title" },
+	{ "name": "internal_title", "type": "text", "label": "Internal title", "help": "Only visible inside FoPost." },
+	{ "name": "summary", "type": "text", "label": "Summary", "multiline": true },
+	{ "name": "auto_plug", "type": "boolean", "label": "Auto plug", "default": false },
+	{ "name": "auto_plug_content", "type": "text", "label": "Auto plug content", "multiline": true },
+	{ "name": "repeatable", "type": "boolean", "label": "Repeatable", "default": false },
+	{ "name": "repeatable_times", "type": "uinteger", "label": "Repeat times" },
+	{ "name": "repeatable_gap", "type": "uinteger", "label": "Repeat gap" },
+	{
+		"name": "repeatable_gap_unit",
+		"type": "select",
+		"label": "Repeat gap unit",
+		"options": [
+			{ "label": "Hours", "value": "hours" },
+			{ "label": "Days", "value": "days" },
+			{ "label": "Weeks", "value": "weeks" },
+			{ "label": "Months", "value": "months" }
+		]
+	}
+]

@@ -1,0 +1,7 @@
+[
+	{
+		"name": "workspace_id",
+		"type": "text",
+		"label": "Workspace ID"
+	}
+]
