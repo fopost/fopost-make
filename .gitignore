@@ -1,0 +1,13 @@
+# Make Apps Editor stores the Make API key here. Never commit it.
+.secrets/
+.secrets
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Node (only used by scripts/validate.mjs)
+node_modules/
+npm-debug.log*
