@@ -1,0 +1,30 @@
+[
+	{
+		"name": "workspace_id",
+		"type": "select",
+		"label": "Workspace",
+		"options": {
+			"store": "rpc://listWorkspaces"
+		}
+	},
+	{
+		"name": "accountId",
+		"type": "select",
+		"label": "Account",
+		"help": "Narrow the overview to one connected account.",
+		"options": {
+			"store": "rpc://listAccounts"
+		}
+	},
+	{
+		"name": "days",
+		"type": "uinteger",
+		"label": "Days",
+		"default": 7,
+		"help": "Length of the reporting period, 1 to 365 days.",
+		"validate": {
+			"min": 1,
+			"max": 365
+		}
+	}
+]

@@ -1,0 +1,46 @@
+[
+	{
+		"name": "workspace_id",
+		"type": "select",
+		"label": "Workspace",
+		"options": {
+			"store": "rpc://listWorkspaces"
+		}
+	},
+	{
+		"name": "status",
+		"type": "select",
+		"label": "Status",
+		"options": [
+			{ "label": "Draft", "value": "draft" },
+			{ "label": "Scheduled", "value": "scheduled" },
+			{ "label": "Publishing", "value": "publishing" },
+			{ "label": "Published", "value": "published" },
+			{ "label": "Partially failed", "value": "partially_failed" },
+			{ "label": "Failed", "value": "failed" },
+			{ "label": "Cancelled", "value": "cancelled" }
+		]
+	},
+	{ "name": "search", "type": "text", "label": "Search" },
+	{ "name": "platform", "type": "text", "label": "Platform", "help": "A single network, for example `linkedin` or `tiktok`." },
+	{ "name": "label", "type": "text", "label": "Label" },
+	{
+		"name": "account_id",
+		"type": "select",
+		"label": "Account",
+		"options": {
+			"store": "rpc://listAccounts"
+		}
+	},
+	{ "name": "from", "type": "date", "label": "From" },
+	{ "name": "to", "type": "date", "label": "To" },
+	{
+		"name": "sort",
+		"type": "select",
+		"label": "Sort",
+		"help": "Newest first by default.",
+		"options": [
+			{ "label": "Oldest first", "value": "oldest" }
+		]
+	}
+]

@@ -1,0 +1,27 @@
+[
+	{ "name": "id", "type": "text", "label": "Workspace ID" },
+	{ "name": "name", "type": "text", "label": "Name" },
+	{ "name": "slug", "type": "text", "label": "Slug" },
+	{ "name": "type", "type": "text", "label": "Type" },
+	{ "name": "logo", "type": "url", "label": "Logo" },
+	{ "name": "website", "type": "url", "label": "Website" },
+	{ "name": "timezone", "type": "text", "label": "Time zone" },
+	{ "name": "country", "type": "text", "label": "Country" },
+	{ "name": "description", "type": "text", "label": "Description" },
+	{ "name": "language", "type": "text", "label": "Language" },
+	{
+		"name": "accounts",
+		"type": "array",
+		"label": "Accounts",
+		"spec": [
+			{ "name": "id", "type": "text", "label": "Account ID" },
+			{ "name": "workspaceId", "type": "text", "label": "Workspace ID" },
+			{ "name": "platform", "type": "text", "label": "Platform" },
+			{ "name": "username", "type": "text", "label": "Username" },
+			{ "name": "name", "type": "text", "label": "Name" },
+			{ "name": "avatar", "type": "url", "label": "Avatar URL" }
+		]
+	},
+	{ "name": "created_at", "type": "date", "label": "Created at" },
+	{ "name": "updated_at", "type": "date", "label": "Updated at" }
+]

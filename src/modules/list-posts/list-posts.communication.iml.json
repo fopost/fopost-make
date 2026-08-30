@@ -1,0 +1,27 @@
+{
+	"url": "/posts",
+	"method": "GET",
+	"qs": {
+		"per_page": 100,
+		"workspace_id": "{{parameters.workspace_id}}",
+		"status": "{{parameters.status}}",
+		"search": "{{parameters.search}}",
+		"platform": "{{parameters.platform}}",
+		"label": "{{parameters.label}}",
+		"account_id": "{{parameters.account_id}}",
+		"from": "{{parameters.from}}",
+		"to": "{{parameters.to}}",
+		"sort": "{{parameters.sort}}"
+	},
+	"response": {
+		"limit": "{{parameters.limit}}",
+		"iterate": "{{body.data}}",
+		"output": "{{item}}"
+	},
+	"pagination": {
+		"qs": {
+			"page": "{{pagination.page}}"
+		},
+		"condition": "{{body.meta.current_page < body.meta.last_page}}"
+	}
+}

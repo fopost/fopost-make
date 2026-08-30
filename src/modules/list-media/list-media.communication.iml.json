@@ -1,0 +1,12 @@
+{
+	"url": "/media",
+	"method": "GET",
+	"qs": {
+		"workspaceId": "{{parameters.workspaceId}}"
+	},
+	"response": {
+		"limit": "{{parameters.limit}}",
+		"iterate": "{{body.data}}",
+		"output": "{{item}}"
+	}
+}
