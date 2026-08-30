@@ -1,0 +1,26 @@
+{
+	"url": "/posts",
+	"method": "GET",
+	"qs": {
+		"per_page": 100,
+		"status": "failed",
+		"workspace_id": "{{parameters.workspace_id}}"
+	},
+	"response": {
+		"limit": "{{parameters.limit}}",
+		"iterate": "{{body.data}}",
+		"output": "{{item}}",
+		"trigger": {
+			"type": "date",
+			"order": "desc",
+			"id": "{{item.id}}",
+			"date": "{{item.created_at}}"
+		}
+	},
+	"pagination": {
+		"qs": {
+			"page": "{{pagination.page}}"
+		},
+		"condition": "{{body.meta.current_page < body.meta.last_page}}"
+	}
+}
