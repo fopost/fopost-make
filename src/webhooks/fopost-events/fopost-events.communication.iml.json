@@ -1,0 +1,14 @@
+{
+	"output": {
+		"event": "{{body.event}}",
+		"timestamp": "{{body.timestamp}}",
+		"data": "{{body.data}}"
+	},
+	"respond": {
+		"type": "json",
+		"status": 200,
+		"body": {
+			"received": true
+		}
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"url": "/webhooks/{{webhook.externalHookId}}",
+	"method": "PUT",
+	"body": {
+		"url": "{{webhook.url}}",
+		"events": "{{parameters.events}}",
+		"active": true
+	}
+}
