@@ -1,0 +1,18 @@
+{
+	"url": "/accounts",
+	"method": "GET",
+	"qs": {
+		"workspaceId": "{{parameters.workspace_id}}"
+	},
+	"response": {
+		"limit": 500,
+		"iterate": {
+			"container": "{{body.data}}",
+			"condition": "{{item.active}}"
+		},
+		"output": {
+			"label": "{{item.name}} ({{item.platform}}{{if(item.username, ' · @' + item.username, '')}})",
+			"value": "{{item.id}}"
+		}
+	}
+}
