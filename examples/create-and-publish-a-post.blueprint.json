@@ -1,0 +1,78 @@
+{
+	"name": "FoPost — create and publish a post",
+	"flow": [
+		{
+			"id": 1,
+			"module": "fopost:createPost",
+			"version": 1,
+			"parameters": {
+				"__IMTCONN__": 0
+			},
+			"mapper": {
+				"workspace_id": "0c7a4d18-9e52-4b6f-8a31-5d2f0b9c7e64",
+				"accounts": ["b8e0f5c1-2d47-4a93-bc60-9f1a3e7d5824"],
+				"content": [
+					{
+						"text": "Our spring release is live. Faster scheduling, better analytics.",
+						"media": []
+					}
+				],
+				"content_type": "post",
+				"status": "draft",
+				"title": "Spring launch announcement",
+				"labels": []
+			},
+			"metadata": {
+				"designer": { "x": 0, "y": 0 }
+			}
+		},
+		{
+			"id": 2,
+			"module": "fopost:publishPost",
+			"version": 1,
+			"parameters": {
+				"__IMTCONN__": 0
+			},
+			"mapper": {
+				"id": "{{1.id}}",
+				"accountIds": [],
+				"dryRun": false
+			},
+			"metadata": {
+				"designer": { "x": 300, "y": 0 }
+			}
+		},
+		{
+			"id": 3,
+			"module": "fopost:getPost",
+			"version": 1,
+			"parameters": {
+				"__IMTCONN__": 0
+			},
+			"mapper": {
+				"id": "{{1.id}}"
+			},
+			"metadata": {
+				"designer": { "x": 600, "y": 0 }
+			}
+		}
+	],
+	"metadata": {
+		"version": 1,
+		"scenario": {
+			"roundtrips": 1,
+			"maxErrors": 3,
+			"autoCommit": true,
+			"autoCommitTriggerLast": true,
+			"sequential": false,
+			"confidential": false,
+			"dataloss": false,
+			"dlq": false
+		},
+		"designer": { "orphans": [] }
+	},
+	"scheduling": {
+		"type": "indefinitely",
+		"interval": 900
+	}
+}
