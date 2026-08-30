@@ -1,0 +1,5 @@
+[
+	{ "name": "automationId", "type": "text", "label": "Automation ID" },
+	{ "name": "runId", "type": "number", "label": "Run ID" },
+	{ "name": "triggered", "type": "boolean", "label": "Triggered" }
+]

@@ -1,0 +1,21 @@
+[
+	{ "name": "id", "type": "text", "label": "Label ID" },
+	{ "name": "name", "type": "text", "label": "Name" },
+	{ "name": "color", "type": "text", "label": "Color" },
+	{
+		"name": "workspace",
+		"type": "collection",
+		"label": "Workspace",
+		"spec": [
+			{ "name": "id", "type": "text", "label": "Workspace ID" },
+			{ "name": "name", "type": "text", "label": "Name" },
+			{ "name": "slug", "type": "text", "label": "Slug" },
+			{ "name": "type", "type": "text", "label": "Type" },
+			{ "name": "logo", "type": "url", "label": "Logo" },
+			{ "name": "timezone", "type": "text", "label": "Time zone" },
+			{ "name": "language", "type": "text", "label": "Language" }
+		]
+	},
+	{ "name": "created_at", "type": "date", "label": "Created at" },
+	{ "name": "updated_at", "type": "date", "label": "Updated at" }
+]

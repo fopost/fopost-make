@@ -1,0 +1,7 @@
+[
+	{ "name": "id", "type": "text", "label": "Media ID" },
+	{ "name": "type", "type": "text", "label": "Type" },
+	{ "name": "name", "type": "text", "label": "File name" },
+	{ "name": "url", "type": "url", "label": "URL" },
+	{ "name": "size", "type": "number", "label": "Size (bytes)" }
+]

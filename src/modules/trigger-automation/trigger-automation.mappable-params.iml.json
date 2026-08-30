@@ -1,0 +1,22 @@
+[
+	{
+		"name": "id",
+		"type": "text",
+		"label": "Automation ID",
+		"required": true,
+		"help": "The ID of an `api_webhook` automation in FoPost."
+	},
+	{
+		"name": "secret",
+		"type": "password",
+		"label": "Automation secret",
+		"required": true,
+		"help": "This endpoint authenticates with the automation's own secret, **not** with your API key. FoPost returns the secret once, when the automation is created."
+	},
+	{
+		"name": "payload",
+		"type": "any",
+		"label": "Payload",
+		"help": "Optional JSON body handed to the automation as its trigger payload."
+	}
+]
