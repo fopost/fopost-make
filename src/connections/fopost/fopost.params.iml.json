@@ -1,0 +1,10 @@
+[
+	{
+		"name": "apiKey",
+		"type": "password",
+		"label": "API key",
+		"required": true,
+		"editable": true,
+		"help": "Create an API key in the FoPost dashboard under **Settings → API keys**. The key is shown once. A key scoped to a single workspace can only see that workspace."
+	}
+]

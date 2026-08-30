@@ -1,0 +1,30 @@
+{
+	"url": "/workspaces",
+	"method": "GET",
+	"headers": {
+		"X-API-Key": "{{parameters.apiKey}}",
+		"Accept": "application/json"
+	},
+	"response": {
+		"valid": "{{statusCode === 200 && !body.error}}",
+		"error": {
+			"401": {
+				"message": "[401] That FoPost API key was rejected. Create a key in the FoPost dashboard under Settings → API keys and paste it again."
+			},
+			"message": "[{{statusCode}}] {{ifempty(body.message, ifempty(body.error, 'Could not verify the FoPost API key.'))}}"
+		},
+		"data": {
+			"apiKey": "{{parameters.apiKey}}"
+		},
+		"metadata": {
+			"type": "text",
+			"value": "{{ifempty(body.data[1].name, 'FoPost')}}"
+		}
+	},
+	"log": {
+		"sanitize": [
+			"request.headers.`X-API-Key`",
+			"response.body.apiKey"
+		]
+	}
+}
