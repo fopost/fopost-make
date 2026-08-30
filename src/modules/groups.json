@@ -1,0 +1,42 @@
+[
+	{
+		"label": "Posts",
+		"modules": [
+			"watchPublishedPosts",
+			"watchFailedPosts",
+			"watchEvents",
+			"createPost",
+			"updatePost",
+			"getPost",
+			"publishPost",
+			"cancelPost",
+			"duplicatePost",
+			"deletePost",
+			"listPosts"
+		]
+	},
+	{
+		"label": "Media",
+		"modules": ["uploadMedia", "listMedia"]
+	},
+	{
+		"label": "Labels",
+		"modules": ["createLabel"]
+	},
+	{
+		"label": "Automations",
+		"modules": ["triggerAutomation"]
+	},
+	{
+		"label": "Workspaces and accounts",
+		"modules": ["listWorkspaces", "listAccounts"]
+	},
+	{
+		"label": "Analytics",
+		"modules": ["getAnalyticsOverview"]
+	},
+	{
+		"label": "Other",
+		"modules": ["makeApiCall"]
+	}
+]
