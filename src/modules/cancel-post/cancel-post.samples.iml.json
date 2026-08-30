@@ -1,0 +1,10 @@
+{
+	"post_status": "cancelled",
+	"deliveries": [
+		{
+			"id": "7c2b8e14-53af-4d61-9b0e-2a6f1d3c8759",
+			"accountId": "b8e0f5c1-2d47-4a93-bc60-9f1a3e7d5824",
+			"status": "cancelled"
+		}
+	]
+}

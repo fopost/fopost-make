@@ -1,0 +1,25 @@
+{
+	"url": "/posts",
+	"method": "POST",
+	"body": {
+		"workspace_id": "{{parameters.workspace_id}}",
+		"accounts": "{{parameters.accounts}}",
+		"content": "{{parameters.content}}",
+		"content_type": "{{parameters.content_type}}",
+		"status": "{{parameters.status}}",
+		"schedule_at": "{{parameters.schedule_at}}",
+		"labels": "{{parameters.labels}}",
+		"title": "{{parameters.title}}",
+		"internal_title": "{{parameters.internal_title}}",
+		"summary": "{{parameters.summary}}",
+		"auto_plug": "{{parameters.auto_plug}}",
+		"auto_plug_content": "{{parameters.auto_plug_content}}",
+		"repeatable": "{{parameters.repeatable}}",
+		"repeatable_times": "{{parameters.repeatable_times}}",
+		"repeatable_gap": "{{parameters.repeatable_gap}}",
+		"repeatable_gap_unit": "{{parameters.repeatable_gap_unit}}"
+	},
+	"response": {
+		"output": "{{body}}"
+	}
+}

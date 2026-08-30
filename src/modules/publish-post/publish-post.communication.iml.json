@@ -1,0 +1,13 @@
+{
+	"url": "/posts/{{parameters.id}}/publish",
+	"method": "POST",
+	"body": {
+		"accountIds": "{{parameters.accountIds}}",
+		"options": {
+			"dryRun": "{{parameters.dryRun}}"
+		}
+	},
+	"response": {
+		"output": "{{body.data}}"
+	}
+}

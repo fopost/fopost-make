@@ -1,0 +1,71 @@
+[
+	{ "name": "id", "type": "text", "label": "Post ID" },
+	{ "name": "workspace_id", "type": "text", "label": "Workspace ID" },
+	{ "name": "status", "type": "text", "label": "Status" },
+	{ "name": "content_type", "type": "text", "label": "Content type" },
+	{ "name": "title", "type": "text", "label": "Title" },
+	{ "name": "summary", "type": "text", "label": "Summary" },
+	{ "name": "schedule_at", "type": "date", "label": "Scheduled at" },
+	{ "name": "repeatable", "type": "boolean", "label": "Repeatable" },
+	{ "name": "repeatable_times", "type": "number", "label": "Repeat times" },
+	{ "name": "repeatable_gap", "type": "number", "label": "Repeat gap" },
+	{ "name": "repeatable_gap_unit", "type": "text", "label": "Repeat gap unit" },
+	{ "name": "remaining_posts", "type": "number", "label": "Remaining posts" },
+	{ "name": "auto_plug", "type": "boolean", "label": "Auto plug" },
+	{ "name": "auto_plug_content", "type": "text", "label": "Auto plug content" },
+	{
+		"name": "content",
+		"type": "array",
+		"label": "Content blocks",
+		"spec": [
+			{ "name": "id", "type": "number", "label": "Block ID" },
+			{ "name": "position", "type": "number", "label": "Position" },
+			{ "name": "text", "type": "text", "label": "Text" },
+			{
+				"name": "media",
+				"type": "array",
+				"label": "Media",
+				"spec": [
+					{ "name": "type", "type": "text", "label": "Type" },
+					{ "name": "name", "type": "text", "label": "File name" },
+					{ "name": "url", "type": "url", "label": "URL" },
+					{ "name": "size", "type": "number", "label": "Size (bytes)" },
+					{ "name": "alt", "type": "text", "label": "Alt text" },
+					{ "name": "thumbnail", "type": "url", "label": "Thumbnail URL" }
+				]
+			}
+		]
+	},
+	{
+		"name": "accounts",
+		"type": "array",
+		"label": "Accounts",
+		"spec": [
+			{ "name": "id", "type": "text", "label": "Account ID" },
+			{ "name": "platform", "type": "text", "label": "Platform" },
+			{ "name": "username", "type": "text", "label": "Username" },
+			{ "name": "name", "type": "text", "label": "Name" },
+			{ "name": "avatar", "type": "url", "label": "Avatar URL" },
+			{ "name": "publish_status", "type": "text", "label": "Publish status" },
+			{ "name": "posted_at", "type": "date", "label": "Posted at" },
+			{ "name": "platform_post_id", "type": "text", "label": "Platform post ID" },
+			{ "name": "external_url", "type": "url", "label": "External URL" },
+			{ "name": "error_code", "type": "text", "label": "Error code" },
+			{ "name": "error_message", "type": "text", "label": "Error message" },
+			{ "name": "attempts", "type": "number", "label": "Attempts" },
+			{ "name": "max_attempts", "type": "number", "label": "Max attempts" }
+		]
+	},
+	{
+		"name": "labels",
+		"type": "array",
+		"label": "Labels",
+		"spec": [
+			{ "name": "id", "type": "text", "label": "Label ID" },
+			{ "name": "name", "type": "text", "label": "Name" },
+			{ "name": "color", "type": "text", "label": "Color" }
+		]
+	},
+	{ "name": "created_at", "type": "date", "label": "Created at" },
+	{ "name": "updated_at", "type": "date", "label": "Updated at" }
+]

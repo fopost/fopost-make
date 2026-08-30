@@ -1,0 +1,7 @@
+{
+	"url": "/posts/{{parameters.id}}/duplicate",
+	"method": "POST",
+	"response": {
+		"output": "{{body.data}}"
+	}
+}

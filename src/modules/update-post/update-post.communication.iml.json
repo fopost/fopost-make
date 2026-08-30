@@ -1,0 +1,20 @@
+{
+	"url": "/posts/{{parameters.id}}",
+	"method": "PUT",
+	"body": {
+		"accounts": "{{parameters.accounts}}",
+		"content": "{{parameters.content}}",
+		"content_type": "{{parameters.content_type}}",
+		"status": "{{parameters.status}}",
+		"schedule_at": "{{parameters.schedule_at}}",
+		"labels": "{{parameters.labels}}",
+		"title": "{{parameters.title}}",
+		"internal_title": "{{parameters.internal_title}}",
+		"summary": "{{parameters.summary}}",
+		"auto_plug": "{{parameters.auto_plug}}",
+		"auto_plug_content": "{{parameters.auto_plug_content}}"
+	},
+	"response": {
+		"output": "{{body}}"
+	}
+}

@@ -1,0 +1,29 @@
+[
+	{
+		"name": "id",
+		"type": "text",
+		"label": "Post ID",
+		"required": true,
+		"help": "The ID returned by **Create a post**."
+	},
+	{
+		"name": "accountIds",
+		"type": "array",
+		"label": "Accounts",
+		"help": "Leave empty to publish to every account already attached to the post.",
+		"spec": {
+			"type": "select",
+			"label": "Account",
+			"options": {
+				"store": "rpc://listAccounts"
+			}
+		}
+	},
+	{
+		"name": "dryRun",
+		"type": "boolean",
+		"label": "Dry run",
+		"default": false,
+		"help": "Validate the post and report account health without sending anything to a network."
+	}
+]

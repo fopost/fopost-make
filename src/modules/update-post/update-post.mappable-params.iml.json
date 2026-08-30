@@ -1,0 +1,104 @@
+[
+	{
+		"name": "id",
+		"type": "text",
+		"label": "Post ID",
+		"required": true
+	},
+	{
+		"name": "accounts",
+		"type": "array",
+		"label": "Accounts",
+		"help": "Replaces the post's target accounts. Leave empty to keep them as they are.",
+		"spec": {
+			"type": "select",
+			"label": "Account",
+			"options": {
+				"store": "rpc://listAccounts"
+			}
+		}
+	},
+	{
+		"name": "content",
+		"type": "array",
+		"label": "Content",
+		"help": "Replaces every content block. Leave empty to keep the current content.",
+		"spec": {
+			"type": "collection",
+			"label": "Block",
+			"spec": [
+				{
+					"name": "text",
+					"type": "text",
+					"label": "Text",
+					"multiline": true
+				},
+				{
+					"name": "media",
+					"type": "array",
+					"label": "Media",
+					"spec": {
+						"type": "collection",
+						"label": "File",
+						"spec": [
+							{
+								"name": "type",
+								"type": "select",
+								"label": "Type",
+								"required": true,
+								"default": "image",
+								"options": [
+									{ "label": "Image", "value": "image" },
+									{ "label": "Video", "value": "video" },
+									{ "label": "GIF", "value": "gif" }
+								]
+							},
+							{ "name": "name", "type": "text", "label": "File name", "required": true },
+							{ "name": "url", "type": "url", "label": "URL", "required": true },
+							{ "name": "size", "type": "number", "label": "Size (bytes)" },
+							{ "name": "alt", "type": "text", "label": "Alt text" },
+							{ "name": "thumbnail", "type": "url", "label": "Thumbnail URL" }
+						]
+					}
+				}
+			]
+		}
+	},
+	{
+		"name": "content_type",
+		"type": "select",
+		"label": "Content type",
+		"options": [
+			{ "label": "Post", "value": "post" },
+			{ "label": "Thread", "value": "thread" },
+			{ "label": "Reel", "value": "reel" }
+		]
+	},
+	{
+		"name": "status",
+		"type": "select",
+		"label": "Status",
+		"options": [
+			{ "label": "Draft", "value": "draft" },
+			{ "label": "Scheduled", "value": "scheduled" }
+		]
+	},
+	{ "name": "schedule_at", "type": "date", "label": "Schedule at" },
+	{
+		"name": "labels",
+		"type": "array",
+		"label": "Labels",
+		"spec": {
+			"type": "select",
+			"label": "Label",
+			"options": {
+				"store": "rpc://listLabels"
+			}
+		}
+	},
+	{ "name": "title", "type": "text", "label": "Title" },
+	{ "name": "internal_title", "type": "text", "label": "Internal title" },
+	{ "name": "summary", "type": "text", "label": "Summary", "multiline": true },
+	{ "name": "auto_plug", "type": "boolean", "label": "Auto plug" },
+	{ "name": "auto_plug_content", "type": "text", "label": "Auto plug content", "multiline": true }
+]
