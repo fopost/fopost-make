@@ -2,7 +2,7 @@ name: Release
 
 on:
   push:
-    tags: ['v*']
+    tags: ["v*"]
   workflow_dispatch:
 
 permissions:
@@ -17,7 +17,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: "22"
 
       - name: Validate JSON and app conventions
         run: node scripts/validate.mjs
@@ -46,14 +46,27 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: "22"
 
+      # Advisory, not a gate. Make refuses this API unless the token's user holds
+      # the admin "apps edit" permission, which Free organisations cannot grant —
+      # Administration > Roles is not available to them. The release itself does
+      # not depend on Make, so a refusal is reported rather than failing the run.
       - name: Push the app definition to Make
+        id: push
         if: env.MAKE_API_KEY != ''
+        continue-on-error: true
         run: node scripts/deploy.mjs
 
-      - name: Report a skipped deploy
-        if: env.MAKE_API_KEY == ''
+      - name: Report the deploy outcome
         run: |
-          echo "MAKE_API_TOKEN is not configured — the app definition was not pushed to Make."
-          echo "Deploy by hand from the Make Apps Editor in VS Code, or set the secret and re-run."
+          if [ -z "$MAKE_API_KEY" ]; then
+            echo "::notice::MAKE_API_TOKEN is not set — the app definition was not pushed to Make."
+          elif [ "${{ steps.push.outcome }}" = "success" ]; then
+            echo "::notice::App definition pushed to Make."
+          else
+            echo "::warning::Make refused the push. The usual cause is the token's user"
+            echo "::warning::lacking the admin \"apps edit\" permission, which needs a plan"
+            echo "::warning::where Administration > Roles is available. Until then, deploy"
+            echo "::warning::from the Make Apps Editor in VS Code, which uses your session."
+          fi

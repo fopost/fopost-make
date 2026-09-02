@@ -16,41 +16,41 @@ upload media, and read cross-platform analytics.
 
 ### Triggers
 
-| Module | Type | What it does |
-| --- | --- | --- |
-| Watch published posts | Polling | Emits a bundle for each post that reaches the `published` status. |
-| Watch failed posts | Polling | Emits a bundle for each post that failed to publish. |
-| Watch events | Instant (webhook) | Fires the moment FoPost sends a subscribed event — a delivery going live, failing or being delayed, a post finishing, or an account's health changing. Registers and removes its own webhook. |
+| Module                | Type              | What it does                                                                                                                                                                                  |
+| --------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Watch published posts | Polling           | Emits a bundle for each post that reaches the `published` status.                                                                                                                             |
+| Watch failed posts    | Polling           | Emits a bundle for each post that failed to publish.                                                                                                                                          |
+| Watch events          | Instant (webhook) | Fires the moment FoPost sends a subscribed event — a delivery going live, failing or being delayed, a post finishing, or an account's health changing. Registers and removes its own webhook. |
 
 ### Actions
 
-| Module | Endpoint |
-| --- | --- |
-| Create a post | `POST /v1/posts` |
-| Update a post | `PUT /v1/posts/{id}` |
-| Get a post | `GET /v1/posts/{id}` |
-| Publish a post | `POST /v1/posts/{id}/publish` |
-| Cancel a post | `POST /v1/posts/{id}/cancel` |
-| Duplicate a post | `POST /v1/posts/{id}/duplicate` |
-| Delete a post | `DELETE /v1/posts/{id}` |
-| Upload a media file | `POST /v1/media/upload` |
-| Create a label | `POST /v1/labels` |
+| Module                | Endpoint                            |
+| --------------------- | ----------------------------------- |
+| Create a post         | `POST /v1/posts`                    |
+| Update a post         | `PUT /v1/posts/{id}`                |
+| Get a post            | `GET /v1/posts/{id}`                |
+| Publish a post        | `POST /v1/posts/{id}/publish`       |
+| Cancel a post         | `POST /v1/posts/{id}/cancel`        |
+| Duplicate a post      | `POST /v1/posts/{id}/duplicate`     |
+| Delete a post         | `DELETE /v1/posts/{id}`             |
+| Upload a media file   | `POST /v1/media/upload`             |
+| Create a label        | `POST /v1/labels`                   |
 | Trigger an automation | `POST /v1/automations/{id}/trigger` |
 
 ### Searches
 
-| Module | Endpoint |
-| --- | --- |
-| Search posts | `GET /v1/posts` |
-| List workspaces | `GET /v1/workspaces` |
-| List accounts | `GET /v1/accounts` |
-| List media files | `GET /v1/media` |
+| Module                    | Endpoint                     |
+| ------------------------- | ---------------------------- |
+| Search posts              | `GET /v1/posts`              |
+| List workspaces           | `GET /v1/workspaces`         |
+| List accounts             | `GET /v1/accounts`           |
+| List media files          | `GET /v1/media`              |
 | Get an analytics overview | `GET /v1/analytics/overview` |
 
 ### Universal
 
-| Module | What it does |
-| --- | --- |
+| Module           | What it does                                                                                                      |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------- |
 | Make an API call | Performs an arbitrary authorized call against `https://api.fopost.com`, for any endpoint this app does not model. |
 
 Workspace, account and label pickers are filled live by remote procedure calls, so you choose a
@@ -106,14 +106,14 @@ and map the returned URL into the content block.
 The app maps FoPost's `{"error", "message"}` envelope onto readable Make errors and picks the
 error type that makes a scenario behave sensibly:
 
-| Status | Make error type | Effect |
-| --- | --- | --- |
-| 401 | `InvalidAccessTokenError` | Scenario is deactivated and you are told to reconnect. |
-| 402 | `InvalidConfigurationError` | Scenario is deactivated; the message carries the upgrade link. |
-| 403 | `InvalidConfigurationError` | The key lacks the scope, or the account has no subscription. |
-| 404 / 422 | `DataError` | The bundle is stored as an incomplete execution if you enabled that. |
-| 429 | `RateLimitError` | Make pauses the scenario and resumes it instead of counting an error. |
-| 5xx | `ConnectionError` | Make backs off and retries. |
+| Status    | Make error type             | Effect                                                                |
+| --------- | --------------------------- | --------------------------------------------------------------------- |
+| 401       | `InvalidAccessTokenError`   | Scenario is deactivated and you are told to reconnect.                |
+| 402       | `InvalidConfigurationError` | Scenario is deactivated; the message carries the upgrade link.        |
+| 403       | `InvalidConfigurationError` | The key lacks the scope, or the account has no subscription.          |
+| 404 / 422 | `DataError`                 | The bundle is stored as an incomplete execution if you enabled that.  |
+| 429       | `RateLimitError`            | Make pauses the scenario and resumes it instead of counting an error. |
+| 5xx       | `ConnectionError`           | Make backs off and retries.                                           |
 
 The API key is stripped from every execution log.
 
