@@ -323,7 +323,7 @@
 	"origins": [
 		{
 			"label": "Production",
-			"baseUrl": "https://eu1.make.com/api",
+			"baseUrl": "https://us2.make.com/api",
 			"appId": "fopost",
 			"appVersion": 1,
 			"apikeyFile": "../.secrets/apikey",
