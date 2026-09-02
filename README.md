@@ -3,6 +3,13 @@
 [![CI](https://github.com/fopost/fopost-make/actions/workflows/ci.yml/badge.svg)](https://github.com/fopost/fopost-make/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+> **Status: in progress.** The app definition here is complete and validated, and every
+> tag publishes a GitHub release. It is not yet installable from Make — the app is built
+> and lives in Make as a private app, but deploying it needs an organisation permission we
+> are still sorting out, and the public listing needs Make's own review after that. We are
+> working on it; watch this repository or ask on the
+> [contact page](https://fopost.com/contact) and we will let you know when it lands.
+
 The official [FoPost](https://fopost.com) app for [Make](https://www.make.com) (formerly
 Integromat). This repository is the version-controlled source of truth for the app definition:
 the IML JSON that Make executes.
@@ -58,14 +65,27 @@ name instead of pasting a UUID.
 
 ## Install
 
-### Private app (today)
+### Private app (not yet available)
 
-Make custom apps are private until Make approves them for the public listing. To use this one:
+Make custom apps are private until Make approves them for the public listing, and this one
+is not shareable yet. The definition in this repository is finished and validated; what is
+outstanding is deploying it into Make, which the API refuses unless the token's user holds
+the admin **apps edit** permission — granted through Administration > Roles, which is not
+available on every plan. CI reports that refusal as a warning rather than failing the
+release, so tags keep publishing normally.
 
-1. Ask us for an invite link on the [contact page](https://fopost.com/contact), or build it
-   yourself from this repository (see [CLAUDE.md](CLAUDE.md)).
-2. Open the link while signed in to Make. The app appears in your organization's app list.
-3. Add any FoPost module to a scenario and create a connection.
+Two ways it gets unblocked:
+
+- **Make Apps Editor for VS Code** deploys with your browser session instead of an API
+  token, which sidesteps the token-user permission entirely.
+- **CI** picks it up automatically once `MAKE_API_TOKEN` belongs to a user whose role
+  grants apps edit. `MAKE_ZONE` is already set (a hostname such as `us2.make.com`, not a
+  zone code like `US2`).
+
+The app exists in Make as `fopost-acv9cu` at version 1 on the us2 zone — Make appends a
+suffix on creation. Those values live in the `origins` block of `src/makecomapp.json`.
+
+Once it deploys, we will publish an invite link here.
 
 ### Public listing (later)
 
