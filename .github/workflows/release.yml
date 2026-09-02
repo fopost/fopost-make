@@ -38,7 +38,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MAKE_API_KEY: ${{ secrets.MAKE_API_TOKEN }}
-      MAKE_ZONE: ${{ vars.MAKE_ZONE || 'EU1' }}
+      # The CLI wants a hostname, not a zone code: "us2.make.com", not "US2".
+      # A bare code yields a DNS failure that surfaces only as "fetch failed".
+      MAKE_ZONE: ${{ vars.MAKE_ZONE || 'eu1.make.com' }}
     steps:
       - uses: actions/checkout@v4
 
