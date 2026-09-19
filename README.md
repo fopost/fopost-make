@@ -40,7 +40,7 @@ upload media, and read cross-platform analytics.
 | Cancel a post         | `POST /v1/posts/{id}/cancel`        |
 | Duplicate a post      | `POST /v1/posts/{id}/duplicate`     |
 | Delete a post         | `DELETE /v1/posts/{id}`             |
-| Upload a media file   | `POST /v1/media/upload`             |
+| Upload a media file   | `POST /v1/media/presign` → `PUT` upload URL → `POST /v1/media/presign/{uploadId}/complete` |
 | Create a label        | `POST /v1/labels`                   |
 | Trigger an automation | `POST /v1/automations/{id}/trigger` |
 
