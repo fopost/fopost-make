@@ -1,17 +1,34 @@
-{
-	"url": "/media/upload",
-	"method": "POST",
-	"type": "multipart/form-data",
-	"body": {
-		"workspaceId": "{{parameters.workspaceId}}",
-		"files": {
-			"value": "{{parameters.file_data}}",
-			"options": {
-				"filename": "{{parameters.file_name}}"
+[
+	{
+		"url": "/media/presign",
+		"method": "POST",
+		"body": {
+			"workspaceId": "{{parameters.workspaceId}}",
+			"filename": "{{parameters.file_name}}",
+			"mimeType": "{{mime(parameters.file_name)}}",
+			"size": "{{length(parameters.file_data)}}"
+		},
+		"response": {
+			"temp": {
+				"uploadId": "{{body.data.uploadId}}",
+				"uploadUrl": "{{body.data.uploadUrl}}",
+				"method": "{{body.data.method}}",
+				"headers": "{{body.data.headers}}"
 			}
 		}
 	},
-	"response": {
-		"output": "{{body.data[1]}}"
+	{
+		"url": "{{temp.uploadUrl}}",
+		"method": "{{temp.method}}",
+		"type": "binary",
+		"headers": "{{temp.headers}}",
+		"body": "{{parameters.file_data}}"
+	},
+	{
+		"url": "/media/presign/{{temp.uploadId}}/complete",
+		"method": "POST",
+		"response": {
+			"output": "{{body.data}}"
+		}
 	}
-}
+]
